@@ -1,0 +1,58 @@
+<form [formGroup]="playerReg" (ngSubmit)="savePlayer()">
+    <table align="center">
+    <tr>
+        <td><label>Name</label></td>
+
+    <td><input type="text" name="savedPlayer.name" [(ngModel)]="savedPlayer.name" formControlName="uname"></td></tr>
+    <tr>
+    <td><label > Email </label></td>
+    <td><input type="email" name="savedPlayer.email" [(ngModel)]="savedPlayer.email" formControlName="email"></td>
+    </tr>
+    <tr>
+    <td><label > Role </label></td>
+    <td>
+        <select name="savedPlayer.role" [(ngModel)]="savedPlayer.role" formControlName="role">
+            <option > batsman </option>
+            <option > bowler </option>
+            <option > all rounder </option>
+        </select>
+    </td>
+    </tr>
+    <tr>
+    <td><label> Nationality </label></td>
+    <td>
+        <select name="savedPlayer.nationality" [(ngModel)]="savedPlayer.nationality" formControlName="nationality">
+            <option > India </option>
+            <option> Australia </option>
+            <option > New Zealand </option>
+            <option > Pakistan </option>
+        </select>
+    </td>
+    </tr>
+    <tr>
+    <td><label> No of Matches Played </label></td>
+    <td><input type="number" name="savedPlayer.noOfMatchesPlayed" [(ngModel)]="savedPlayer.noOfMatchesPlayed" formControlName="matches"></td>
+    </tr>
+    <tr>
+    <td><label > No of Wickets </label></td>
+    <td><input type="number" name="savedPlayer.noOfWickets" [(ngModel)]="savedPlayer.noOfWickets" formControlName="wickets"></td>
+    </tr>
+    <tr>
+    <td><label > No of Runs </label></td>
+    <td><input type="number" name="savedPlayer.noOfRuns" [(ngModel)]="savedPlayer.noOfRuns" formControlName="runs"></td>
+    </tr>
+    <tr>
+    <td><label > No of Catches </label></td>
+    <td><input type="number" name="savedPlayer.noOfCatches" [(ngModel)]="savedPlayer.noOfCatches" formControlName="catches"></td>
+    </tr>
+    <tr>
+        <td><label> Profile image </label></td>
+        <td><input type="file" name="savedPlayer.image" [(ngModel)]="savedPlayer.image" (change)="onUpload($event)" formControlName="pic"></td>
+        <img [src]="savedPlayer.image" width="100px">
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="register" class="btn btn-primary"></td>
+    </tr>
+</table>
+</form>

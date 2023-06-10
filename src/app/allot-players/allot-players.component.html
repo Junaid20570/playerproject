@@ -1,0 +1,41 @@
+<div>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Nationality</th>
+          <th>No.Of Matches Played</th>
+          <th>No.Of Wickets</th>
+          <th>No.Of Runs</th>
+          <th>No.Of Cacthes</th>
+          <th>Team</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of pendingPlayers; index as i" >
+          <td><img [src]="player.image" width="50px"></td>
+          <td>{{player.name}}</td>
+          <td>{{player.email}}</td>
+          <td>{{player.role}}</td>
+          <td>{{player.nationality}}</td>
+          <td>{{player.noOfMatchesPlayed}}</td>
+          <td>{{player.noOfWickets}}</td>
+          <td>{{player.noOfRuns}}</td>
+          <td>{{player.noOfCatches}}</td>
+          <td >
+            <select [(ngModel)]="setTeam[i]">
+              <option> RCB </option>
+              <option> MI </option>
+              <option> GT </option>
+            </select>
+            <button (click)="allotPlayer(player,i)" class="btn btn-primary"> allot  </button>
+          </td>
+          <td>{{player.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>

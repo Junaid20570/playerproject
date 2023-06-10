@@ -1,0 +1,56 @@
+<div class="container">
+  <h5>Select Team</h5>
+  <select [(ngModel)]="setTeam" (change)="calculatePlayerDetails()" id="dd">
+    <option> RCB </option>
+    <option> MI </option>
+    <option> GT </option>
+  </select>
+  <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Team</th>
+          <th>Role</th>
+          <th>Nationality</th>
+          <th>No.Of Matches Played</th>
+          <th>No.Of Wickets</th>
+          <th>No.Of Runs</th>
+          <th>No.Of Cacthes</th>
+          <th>Status</th>
+          <th *ngIf="cur=='admin'">Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let player of allPlayers | search:setTeam" >
+          <td><img [src]="player.image" width="50px"></td>
+          <td>{{player.name}}</td>
+          <td>{{player.email}}</td>
+          <td>{{player.team}}</td>
+          <td>{{player.role}}</td>
+          <td>{{player.nationality}}</td>
+          <td>{{player.noOfMatchesPlayed}}</td>
+          <td>{{player.noOfWickets}}</td>
+          <td>{{player.noOfRuns}}</td>
+          <td>{{player.noOfCatches}}</td>
+          <td [ngStyle]="{'color': (player.status=='pending') ? 'red' : 'green'}" >{{player.status}}</td>
+          <td>
+            <button (click)="deletePlayer(player.email)" *ngIf="cur=='admin'" >
+              <span class="glyphicon glyphicon-trash" style="color: red;"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+   <div class="well" *ngIf="bowler>0" >
+    <h4>No.of Bowlers in {{setTeam}} : {{bowler}}</h4>
+  </div>
+   <div class="well" *ngIf="batsman>0"  >
+    <h4>No.of Batsmen in {{setTeam}} : {{batsman}}</h4>
+  </div>
+   <div class="well" *ngIf="allRound>0" >
+    <h4>No.of All-Rounder in {{setTeam}} : {{allRound}}</h4>
+  </div>
+   
+</div>
