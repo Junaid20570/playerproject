@@ -6,11 +6,11 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'.netlify.app/home',pathMatch:'full'},
+  {path:'', redirectTo:'home',pathMatch:'full'},
   {path:'all-player', component:AllPlayersComponent },
   {path:'allot-player', component:AllotPlayersComponent},
   {path:'register', component:RegisterComponent },
-  {path:'.netlify.app/home' , component:HomeComponent}
+  {path:'home' , component:HomeComponent}
 ];
 
 @NgModule({
